@@ -5,10 +5,10 @@ import About from './components/about.js'
 import './App.css';
 import {Link, BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import axios from 'axios'
-var ID_ID = 0;
 function App() {
   var [AllReports, setAllReports] = useState(0);
   var [GlobalData, setGlobalData] = useState(0);
+  var [DeseaseOutbreak,setDeseaseOutbreak] = useState(0);
   var [DidLoad,setDidLoad] = useState(false);
   var DidLoadThen = DidLoad;
 
@@ -19,7 +19,7 @@ function App() {
      console.log("IF EXECUTED IN APP")
      DidLoadThen = true;
      setDidLoad(true); 
-  
+     
     
           axios.get("https://covid-api.com/api/reports/")
          .then(result=>{
@@ -29,6 +29,7 @@ function App() {
                confirmed:res.confirmed,
                active:res.active,
                recovered:res.recovered,
+               deaths:res.deaths,
                fatality_rate:res.fatality_rate,
                country:res.region.name,
                province:res.region.province
@@ -58,6 +59,8 @@ function App() {
                console.log("ERROR ON CATCH GLOBAL DATA",result)
                setDidLoad = true;
            }) 
+
+
       
   }
 

@@ -1,6 +1,5 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './home.css'
-import axios from 'axios'
 function Home({data}){
 
     if (data !== undefined || data !== null || data !== 0){

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './dataview.css'
 import 'react-data-grid/dist/react-data-grid.css';
 
@@ -12,7 +12,7 @@ function DataView({Rows}){
         
          return(
           <div className='data-view'>
-         <ReactDataGrid columns={columns} rows={Rows} rowsCount={Rows.length}/>
+         <ReactDataGrid columns={columns} rows={Rows} rowsCount={30} minHeight={1200}/>
           <div className="empty-space"/>
           </div>
           )
@@ -50,6 +50,11 @@ function DataView({Rows}){
     {
       key: "recovered",
       name: "Recovered",
+     
+    },
+    {
+      key: "deaths",
+      name: "Deaths",
      
     },
     {
