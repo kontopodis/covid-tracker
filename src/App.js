@@ -1,14 +1,13 @@
 import React,{useState} from 'react';
-import Home from './components/home'
-import DataView from './components/dataview.js'
-import Disclaimer from './components/disclaimer.js'
+import Home from './components/home';
+import DataView from './components/dataview.js';
+import Disclaimer from './components/disclaimer.js';
 import './App.css';
 import {Link, BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 function App() {
   var [AllReports, setAllReports] = useState(0);
   var [GlobalData, setGlobalData] = useState(0);
-  var [DeseaseOutbreak,setDeseaseOutbreak] = useState(0);
   var [DidLoad,setDidLoad] = useState(false);
   var DidLoadThen = DidLoad;
 
@@ -16,9 +15,7 @@ function App() {
 
 
   if (DidLoadThen === false){
-     console.log("IF EXECUTED IN APP")
-     DidLoadThen = true;
-     setDidLoad(true); 
+
      
     
           axios.get("https://covid-api.com/api/reports/")
@@ -36,11 +33,8 @@ function App() {
              })
            })
              setAllReports(allres)           
-              console.log("RESULT CAME BACK ",allres);
           })
           .catch(result=>{
-              console.log("ERROR ON CATCH ",result)
-              setDidLoad = true;
           })   
 
           axios.get("https://covid-api.com/api/reports/total")
@@ -53,15 +47,12 @@ function App() {
                 Fatality:result.data.data.fatality_rate
             }
             setGlobalData(GDATA);      
-               console.log("RESULT CAME BACK GLOBAL DATA", GDATA);
            })
            .catch(result=>{
-               console.log("ERROR ON CATCH GLOBAL DATA",result)
-               setDidLoad = true;
            }) 
 
-
-      
+          DidLoadThen = true;
+          setDidLoad(true);       
   }
 
   return (
@@ -72,26 +63,28 @@ function App() {
     <div className="menu">    
       <Link to='/global' className="menu-item">Global</Link>
       <Link to='/allreports' className="menu-item">All Reports</Link>
-      <Link exact to='/' className="menu-item">Disclaimer</Link>
+      <Link to='/' className="menu-item">Disclaimer</Link>
 
  
     </div>    
-   
+    
     
    <Switch>
+   <Route exact="/" path='/'><Disclaimer/></Route>
      <Route path='/global'>
      {()=>{
-       if (GlobalData === undefined || GlobalData === null || GlobalData === 0){}else{
+       if (DidLoad === true){
          return(<Home data={GlobalData}/>)
        }
      }}
      </Route>
      <Route path='/allreports'>{()=>{
-       if (AllReports === undefined || AllReports === null || AllReports === 0){}else{
+       if (DidLoad === true){
          return(<DataView Rows={AllReports}/>)
        }
      }}</Route>
-     <Route path='/'><Disclaimer/></Route>
+
+     
    </Switch>
    </Router>
    
