@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Home from './components/home'
 import DataView from './components/dataview.js'
-import About from './components/about.js'
+import Disclaimer from './components/disclaimer.js'
 import './App.css';
 import {Link, BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import axios from 'axios'
@@ -66,18 +66,20 @@ function App() {
 
   return (
     <div className="App">
+
+
 <Router basename="/webapps/covid-tracker/">   
     <div className="menu">    
-      <Link to='/' className="menu-item">Global</Link>
+      <Link to='/global' className="menu-item">Global</Link>
       <Link to='/allreports' className="menu-item">All Reports</Link>
-      <Link to='/about' className="menu-item">About</Link>
+      <Link exact to='/' className="menu-item">Disclaimer</Link>
 
  
     </div>    
    
     
    <Switch>
-     <Route exact path='/'>
+     <Route path='/global'>
      {()=>{
        if (GlobalData === undefined || GlobalData === null || GlobalData === 0){}else{
          return(<Home data={GlobalData}/>)
@@ -89,7 +91,7 @@ function App() {
          return(<DataView Rows={AllReports}/>)
        }
      }}</Route>
-     <Route path='/about'><About/></Route>
+     <Route path='/'><Disclaimer/></Route>
    </Switch>
    </Router>
    

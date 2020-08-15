@@ -14,6 +14,7 @@
   background-color: #333;
 }
 .menu-item{
+  background-color: #333;
   display: block;
   color: white;
   text-align: center;
@@ -34,6 +35,10 @@ a{
 .home-title{
   width: 100%;
   text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+.modal-title{
   font-size: xx-large;
   font-weight: bold;
 }

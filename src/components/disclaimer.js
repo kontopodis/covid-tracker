@@ -1,6 +1,6 @@
 import React from 'react'
 import '../App.css'
-function About({data}){
+function Disclaimer(){
 
 
 return (
@@ -17,11 +17,16 @@ return (
    Front-end made by: Kontopodis Emmanouil<br/>
    Just for fun! And to learn React, Javascript, Data-Grids<br/>
    Source Code for Front-end on <a href="https://github.com/kontopodis/covid-tracker" target="_blank" rel="noopener noreferrer">GitHub</a><br/>
-   </div>
+   <br/>
+ 
+
+   <br/>About the front-end only:<br/>
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     </div>
         <div className="empty-space"/>
         </div>
            
 )
 
 }
-export default About;
+export default Disclaimer;
