@@ -8,7 +8,7 @@ Data reports by: <br/>
    Thanks to: <a href="https://axisbits.com/" target="_blank" rel="noopener noreferrer">https://axisbits.com/</a><br/>
    Front-end made by: Kontopodis Emmanouil<br/>
    Just for fun! And to learn React, Javascript, Data-Grids<br/>
-   <a href="https://manuels-journal.com/webapps/covid-tracker/" target="_blank" rel="noopener noreferrer"> Live Demo</a>
+   <a href="https://manuels-journal.com/webapps/covid_tracker/" target="_blank" rel="noopener noreferrer"> Live Demo</a>
    </div>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
